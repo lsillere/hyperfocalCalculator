@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7607AF021E44E42E00C01444 /* camera.json in Resources */ = {isa = PBXBuildFile; fileRef = 7607AF011E44E42E00C01444 /* camera.json */; };
 		76ACF8A61E4488FE0093FD4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACF8A51E4488FE0093FD4A /* AppDelegate.swift */; };
 		76ACF8A81E4488FE0093FD4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACF8A71E4488FE0093FD4A /* ViewController.swift */; };
 		76ACF8AB1E4488FE0093FD4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ACF8A91E4488FE0093FD4A /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		76ACF8B01E4488FE0093FD4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76ACF8AE1E4488FE0093FD4A /* LaunchScreen.storyboard */; };
 		76ACF8BB1E4488FE0093FD4A /* Hyperfocal_calculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACF8BA1E4488FE0093FD4A /* Hyperfocal_calculatorTests.swift */; };
 		76ACF8C61E4488FE0093FD4A /* Hyperfocal_calculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACF8C51E4488FE0093FD4A /* Hyperfocal_calculatorUITests.swift */; };
+		76ACF8D61E4497800093FD4A /* CameraTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACF8D51E4497800093FD4A /* CameraTableViewController.swift */; };
+		76ACF8D91E4497B60093FD4A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ACF8D81E4497B60093FD4A /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7607AF011E44E42E00C01444 /* camera.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = camera.json; sourceTree = "<group>"; };
 		76ACF8A21E4488FE0093FD4A /* Hyperfocal calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hyperfocal calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ACF8A51E4488FE0093FD4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76ACF8A71E4488FE0093FD4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		76ACF8C11E4488FE0093FD4A /* Hyperfocal calculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hyperfocal calculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76ACF8C51E4488FE0093FD4A /* Hyperfocal_calculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hyperfocal_calculatorUITests.swift; sourceTree = "<group>"; };
 		76ACF8C71E4488FE0093FD4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76ACF8D51E4497800093FD4A /* CameraTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraTableViewController.swift; path = ../CameraTableViewController.swift; sourceTree = "<group>"; };
+		76ACF8D81E4497B60093FD4A /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7607AF001E44E3CC00C01444 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				7607AF011E44E42E00C01444 /* camera.json */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
 		76ACF8991E4488FE0093FD4A = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +111,11 @@
 		76ACF8A41E4488FE0093FD4A /* Hyperfocal calculator */ = {
 			isa = PBXGroup;
 			children = (
+				7607AF001E44E3CC00C01444 /* Ressources */,
+				76ACF8D71E4497A30093FD4A /* Models */,
 				76ACF8A51E4488FE0093FD4A /* AppDelegate.swift */,
 				76ACF8A71E4488FE0093FD4A /* ViewController.swift */,
+				76ACF8D51E4497800093FD4A /* CameraTableViewController.swift */,
 				76ACF8A91E4488FE0093FD4A /* Main.storyboard */,
 				76ACF8AC1E4488FE0093FD4A /* Assets.xcassets */,
 				76ACF8AE1E4488FE0093FD4A /* LaunchScreen.storyboard */,
@@ -123,6 +140,14 @@
 				76ACF8C71E4488FE0093FD4A /* Info.plist */,
 			);
 			path = "Hyperfocal calculatorUITests";
+			sourceTree = "<group>";
+		};
+		76ACF8D71E4497A30093FD4A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76ACF8D81E4497B60093FD4A /* Camera.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7607AF021E44E42E00C01444 /* camera.json in Resources */,
 				76ACF8B01E4488FE0093FD4A /* LaunchScreen.storyboard in Resources */,
 				76ACF8AD1E4488FE0093FD4A /* Assets.xcassets in Resources */,
 				76ACF8AB1E4488FE0093FD4A /* Main.storyboard in Resources */,
@@ -259,8 +285,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76ACF8D91E4497B60093FD4A /* Camera.swift in Sources */,
 				76ACF8A81E4488FE0093FD4A /* ViewController.swift in Sources */,
 				76ACF8A61E4488FE0093FD4A /* AppDelegate.swift in Sources */,
+				76ACF8D61E4497800093FD4A /* CameraTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +533,7 @@
 				76ACF8CC1E4488FE0093FD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76ACF8CD1E4488FE0093FD4A /* Build configuration list for PBXNativeTarget "Hyperfocal calculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +542,7 @@
 				76ACF8CF1E4488FE0093FD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76ACF8D01E4488FE0093FD4A /* Build configuration list for PBXNativeTarget "Hyperfocal calculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +551,7 @@
 				76ACF8D21E4488FE0093FD4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

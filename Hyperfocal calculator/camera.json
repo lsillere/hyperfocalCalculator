@@ -1,0 +1,12 @@
+{
+    "cameras" : [
+                 {
+                    "name" : "toto-C",
+                 "confusionCircle" : 0.023
+                 },
+                 {
+                    "name" : "APSC-H",
+                    "confusionCircle" : 0.024
+                 },
+    ]
+}

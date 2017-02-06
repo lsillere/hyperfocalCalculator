@@ -21,9 +21,11 @@ class CameraTableViewController: UITableViewController {
         super.viewDidLoad()
         print(passedValue)
         passedValue = "new"
-        camera.append(Camera(name: "APS-C", cercleDeConfusion: 0.023))
+        
+        camera = camerasInit()
+        /*camera.append(Camera(name: "APS-C", cercleDeConfusion: 0.023))
         camera.append(Camera(name: "APS-H", cercleDeConfusion: 0.024))
-        camera.append(Camera(name: "APS-C Canon", cercleDeConfusion: 0.019))
+        camera.append(Camera(name: "APS-C Canon", cercleDeConfusion: 0.019))*/
         print("file cameratableviewcontroller")
         
         var pickedCamera: String?
@@ -119,6 +121,29 @@ class CameraTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     
-   
-
+    func camerasInit() -> [Camera] {
+        var cameras = [Camera]()
+        
+        // Fetch URL
+        let url = Bundle.main.url(forResource: "camera", withExtension: "json")!
+        
+        // Load Data
+        let data = try! Data(contentsOf: url)
+        
+        // Deserialize JSON
+        let JSON = try! JSONSerialization.jsonObject(with: data, options: [])
+        
+        if let JSON = JSON as? [String: AnyObject] {
+            if let cameraData = JSON["cameras"] as? [[String: AnyObject]] {
+                for cameraDataPoint in cameraData {
+                    if let time = cameraDataPoint["name"] as? String,
+                        let windSpeed = cameraDataPoint["confusionCircle"] as? Double {
+                        cameras.append(Camera(name: time, cercleDeConfusion: windSpeed))
+                    }
+                }
+            }
+        }
+        
+        return cameras
+    }
 }

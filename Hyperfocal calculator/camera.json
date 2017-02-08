@@ -1,11 +1,11 @@
 {
     "cameras" : [
                  {
-                    "name" : "toto-C",
-                 "confusionCircle" : 0.023
+                    "name" : "APS-C",
+                    "confusionCircle" : 0.023
                  },
                  {
-                    "name" : "APSC-H",
+                    "name" : "APS-H",
                     "confusionCircle" : 0.024
                  },
     ]

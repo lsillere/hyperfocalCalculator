@@ -23,12 +23,11 @@ class CameraTableViewController: UITableViewController {
         passedValue = "new"
         
         camera = camerasInit()
-        /*camera.append(Camera(name: "APS-C", cercleDeConfusion: 0.023))
-        camera.append(Camera(name: "APS-H", cercleDeConfusion: 0.024))
-        camera.append(Camera(name: "APS-C Canon", cercleDeConfusion: 0.019))*/
         print("file cameratableviewcontroller")
         
-        var pickedCamera: String?
+        let nav = self.navigationController?.navigationBar
+        nav?.isTranslucent = false
+        nav?.tintColor = UIColor.white
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

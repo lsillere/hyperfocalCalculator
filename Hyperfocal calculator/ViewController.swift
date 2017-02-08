@@ -38,11 +38,14 @@ class ViewController: UIViewController/*, UIPickerViewDelegate, UIPickerViewData
         
         // Bar customization
         let nav = self.navigationController?.navigationBar
+        nav?.tintColor = UIColor.white
         //nav?.barStyle = UIBarStyle.black
         //self.navigationController?.toolbar.barTintColor = UIColor.init(red: 111, green: 212, blue: 254, alpha: 100)
         //nav?.backgroundColor = UIColor.init(red: 111, green: 212, blue: 254, alpha: 100)
         //self.navigationController?.toolbar.
-        nav?.barTintColor = UIColor.init(red: 111/255, green: 212/255, blue: 254/255, alpha: 1)
+        //nav?.barTintColor = UIColor.init(red: 111/255, green: 212/255, blue: 254/255, alpha: 1)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         //self.captorPicker.delegate = self
         //self.captorPicker.dataSource = self

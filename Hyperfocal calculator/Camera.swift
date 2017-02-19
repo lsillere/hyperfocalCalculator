@@ -10,11 +10,11 @@ import Foundation
 
 class Camera {
     var name: String // interval in second between 2 pictures taken
-    var cercleDeConfusion: Double
+    var confusionCircle: Double
     
     // Get var values from userdefault or set default values
-    init(name: String, cercleDeConfusion: Double) {
+    init(name: String, confusionCircle: Double) {
         self.name = name
-        self.cercleDeConfusion = cercleDeConfusion
+        self.confusionCircle = confusionCircle
     }
 }

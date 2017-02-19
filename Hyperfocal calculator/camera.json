@@ -8,5 +8,37 @@
                     "name" : "APS-H",
                     "confusionCircle" : 0.024
                  },
+                 {
+                 "name" : "Canon 1D",
+                 "confusionCircle" : 0.023
+                 },
+                 {
+                 "name" : "Canon 1D Mark II",
+                 "confusionCircle" : 0.023
+                 },
+                 {
+                 "name" : "Canon 1D Mark II N",
+                 "confusionCircle" : 0.023
+                 },
+                 {
+                 "name" : "Canon 1D Mark III",
+                 "confusionCircle" : 0.023
+                 },
+                 {
+                 "name" : "Canon 1D Mark IV",
+                 "confusionCircle" : 0.023
+                 },
+                 {
+                 "name" : "Fujifilm FinePix S5700",
+                 "confusionCircle" : 0.005
+                 },
+                 {
+                 "name" : "Fujifilm FinePix SL240",
+                 "confusionCircle" : 0.005
+                 },
+                 {
+                 "name" : "Fujifilm FinePix SL300",
+                 "confusionCircle" : 0.005
+                 }
     ]
 }

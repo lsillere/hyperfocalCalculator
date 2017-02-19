@@ -8,27 +8,45 @@
 
 import UIKit
 
-class CameraTableViewController: UITableViewController {
-    
-    var passedValue: String? // The object to be passed
-    var camera: [Camera] = []
+class CameraTableViewController: UITableViewController, UISearchResultsUpdating {
+    var cameras: [Camera] = []
+    var filteredCameras: [Camera] = []
     var test: String = "plop"
-    var pickedCamera = Camera(name: "APS-C", cercleDeConfusion: 0.020)
-    
+    var pickedCamera = Camera(name: "APS-C", confusionCircle: 0.020)
+    let searchController = UISearchController(searchResultsController: nil)
+
     weak var delegate: ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(passedValue)
-        passedValue = "new"
         
-        camera = camerasInit()
+        cameras = camerasInit()
         print("file cameratableviewcontroller")
         
+        let appColor = UIColor(red: 95/255, green: 184/255, blue: 254/255, alpha: 1.0)
+        
+        // Navigation bar customization
         let nav = self.navigationController?.navigationBar
         nav?.isTranslucent = false
         nav?.tintColor = UIColor.white
+        nav?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        nav?.shadowImage = UIImage()
         
+        // Search Controller customization
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search your camera model"
+       // searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.barTintColor = appColor
+        searchController.searchBar.layer.borderWidth = 1
+        searchController.searchBar.layer.borderColor = appColor.cgColor
+        searchController.searchBar.tintColor = UIColor.white
+
+        
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -50,16 +68,38 @@ class CameraTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return camera.count
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredCameras.count
+        }
+        return cameras.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = camera[indexPath.row].name
+        let camera: Camera
+        if searchController.isActive && searchController.searchBar.text != "" {
+            camera = filteredCameras[indexPath.row]
+        } else {
+            camera = cameras[indexPath.row]
+        }
+        
+        
+        cell.textLabel?.text = camera.name
         
         return cell
     }
+    
+    public func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
  
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredCameras = cameras.filter { Camera in
+            return (Camera.name.lowercased().range(of: searchText.lowercased()) != nil)
+        }
+        
+        tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -107,21 +147,25 @@ class CameraTableViewController: UITableViewController {
     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "pickedCamera" {
             let cell = sender as! UITableViewCell
             let index = tableView.indexPath(for: cell)
             if let indexPath = index?.row {
-                pickedCamera = camera[indexPath]
+                let tableVC = segue.destination as! ViewController
+                if searchController.isActive && searchController.searchBar.text != "" {
+                    tableVC.selectedCamera = filteredCameras[indexPath]
+                    // test with unwind segue : pickedCamera = filteredCameras[indexPath]
+                } else {
+                    tableVC.selectedCamera = cameras[indexPath]
+                    // test with unwind segue : pickedCamera = cameras[indexPath]
+                }
             }
         }
-        
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
     }
     
+    
     func camerasInit() -> [Camera] {
-        var cameras = [Camera]()
+        var camerasJSON = [Camera]()
         
         // Fetch URL
         let url = Bundle.main.url(forResource: "camera", withExtension: "json")!
@@ -137,12 +181,12 @@ class CameraTableViewController: UITableViewController {
                 for cameraDataPoint in cameraData {
                     if let time = cameraDataPoint["name"] as? String,
                         let windSpeed = cameraDataPoint["confusionCircle"] as? Double {
-                        cameras.append(Camera(name: time, cercleDeConfusion: windSpeed))
+                        camerasJSON.append(Camera(name: time, confusionCircle: windSpeed))
                     }
                 }
             }
         }
         
-        return cameras
+        return camerasJSON
     }
 }

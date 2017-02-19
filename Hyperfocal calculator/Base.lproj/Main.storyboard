@@ -105,7 +105,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.37075024843215942" green="0.72017002105712891" blue="0.99791353940963745" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.37254901960784315" green="0.72156862745098038" blue="0.99607843137254903" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="rwc-mn-qCq" secondAttribute="trailing" id="0EP-G9-qrm"/>
                             <constraint firstItem="xvU-72-sB8" firstAttribute="leading" secondItem="Pks-YZ-bws" secondAttribute="trailing" constant="30" id="17q-3N-Zuw"/>
@@ -222,14 +222,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0BP-48-fwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015" y="881"/>
+            <point key="canvasLocation" x="2015" y="910"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hxg-PT-phi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ubk-6w-2BY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rmw-rz-wFX" userLabel="HF Calculator">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rmw-rz-wFX" userLabel="HF Calculator">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.30980392159999998" green="0.65490196079999996" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,7 +244,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMM-8C-VcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1081" y="137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
